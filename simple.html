@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRMS</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const Button = ({ children, onClick, variant = 'primary', type = 'button', className = '' }) => {
+            const baseStyles = 'px-4 py-2 rounded-lg font-medium transition-colors duration-200';
+            
+            const variants = {
+                primary: 'bg-blue-600 text-white hover:bg-blue-700',
+                secondary: 'bg-gray-600 text-white hover:bg-gray-700',
+                danger: 'bg-red-600 text-white hover:bg-red-700',
+                outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50'
+            };
+
+            return (
+                <button
+                    type={type}
+                    onClick={onClick}
+                    className={`${baseStyles} ${variants[variant]} ${className}`}
+                >
+                    {children}
+                </button>
+            );
+        };
+
+        const Card = ({ title, value, icon, bgColor = 'bg-blue-500' }) => {
+            return (
+                <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <p className="text-gray-500 text-sm font-medium">{title}</p>
+                            <p className="text-3xl font-bold text-gray-800 mt-2">{value}</p>
+                        </div>
+                        <div className={`${bgColor} p-4 rounded-full text-white text-2xl`}>
+                            {icon}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div className="p-8">
+                    <h1 className="text-3xl font-bold mb-8">DRMS Dashboard</h1>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <Card title="Total Users" value="1,234" icon="👥" bgColor="bg-blue-500" />
+                        <Card title="Active Sessions" value="89" icon="🔥" bgColor="bg-green-500" />
+                        <Card title="Revenue" value="$12,345" icon="💰" bgColor="bg-purple-500" />
+                    </div>
+                    <div className="space-x-4">
+                        <Button variant="primary">Primary Button</Button>
+                        <Button variant="secondary">Secondary Button</Button>
+                        <Button variant="danger">Danger Button</Button>
+                        <Button variant="outline">Outline Button</Button>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
