@@ -1,0 +1,6 @@
+drms-frontend/node_modules/
+drms-backend/node_modules/
+drms-frontend/build/
+drms-backend/.env
+drms-frontend/.env
+*.log
