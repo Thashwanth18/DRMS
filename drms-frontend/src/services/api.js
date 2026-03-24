@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: process.env.REACT_APP_API_URL || '/api' });
+const DEFAULT_PRODUCTION_API_URL = 'https://drms-2-v3oy.onrender.com/api';
+const baseURL =
+  process.env.REACT_APP_API_URL ||
+  (process.env.NODE_ENV === 'production' ? DEFAULT_PRODUCTION_API_URL : '/api');
+
+const API = axios.create({ baseURL });
 
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');

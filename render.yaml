@@ -15,6 +15,9 @@ staticSites:
     rootDir: drms-frontend
     buildCommand: npm install && npm run build
     publishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://drms-2-v3oy.onrender.com/api
     routes:
       - type: rewrite
         source: /*
