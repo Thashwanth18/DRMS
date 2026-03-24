@@ -9,7 +9,6 @@ const connectDB = async () => {
     if (err.message.includes('querySrv')) {
       console.error('SRV DNS lookup failed. If this network blocks SRV records, use the non-SRV Atlas connection string in MONGO_URI.');
     }
-    process.exit(1);
   }
 };
 
