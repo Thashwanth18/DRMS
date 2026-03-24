@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd drms-frontend && npm install && npm run build",
+  "outputDirectory": "drms-frontend/build",
+  "installCommand": "cd drms-frontend && npm install",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
