@@ -70,7 +70,7 @@ export default function UploadDocument() {
         <form className="panel" onSubmit={handleSubmit}>
           <div className="grid grid--2">
             <div className="field">
-              <label>Register Number</label>
+              <label>Title</label>
               <input className="input" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required />
             </div>
             <div className="field">

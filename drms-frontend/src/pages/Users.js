@@ -185,7 +185,6 @@ export default function Users() {
           </div>
         </div>
       )}
-      )}
 
       {showRemoveModal && (
         <div className="modal-backdrop" onClick={() => setShowRemoveModal(false)}>
